@@ -56,6 +56,7 @@ class dodjango (
   if ($install_basics) {
     exec { 'install-numpy' :
       path    => '/usr/bin:/bin:',
+      timeout => 600,
       command => "bash -c \"source /usr/local/pythonenv/galaxy/bin/activate && pip install --quiet ${proxy_pip} numpy\"",
     }->
   
